@@ -207,14 +207,14 @@ const getActiveAccounts = (data) => {
         var dueDate = new Date(data[i].PaymentDueDate)
         var month = dueDate.getMonth()+1
         var day = dueDate.getDate()
-        var year = dueDate.getFullYear()       }
-     $(".active-account").append(`<ul class="account-data-list">
+        var year = dueDate.getFullYear()
+      $(".active-account").append(`<ul class="account-data-list">
             <li><label>Name:</label>${lastName}, ${firstName}</li>
             <li><label>Email:</label>${email}</li>
             <li><label>Phone Number:</label>(${formatPhone[1]})-${formatPhone[2]}-${formatPhone[3]}</li>
             <li><label>Amount Due:</label>$${amountDue}</li>
             <li><label>Due Date:</label>${month}/${day}/${year}</li>
-        </ul>`)
+        </ul>`)       }
     }
 }
 
@@ -241,9 +241,7 @@ const getActiveAccounts = (data) => {
         var month = dueDate.getMonth()+1
         var day = dueDate.getDate()
         var year = dueDate.getFullYear()
-    }
     if ((firstName && lastName && email && phoneNumber && formatPhone && amountDue && dueDate) != '') {
-
      $(".overdue-account").append(`<ul class="account-data-list">
             <li><label>Name:</label>${lastName}, ${firstName}</li>
             <li><label>Email:</label>${email}</li>
@@ -252,6 +250,7 @@ const getActiveAccounts = (data) => {
             <li><label>Due Date:</label>${month}/${day}/${year}</li>
         </ul>`)
         }
+    }
     }
 }
 
@@ -273,8 +272,7 @@ const getInactiveAccounts = (data) => {
         var formatPhone = phoneNumber.match(/^(\d{3})(\d{3})(\d{4})$/)
         var amountDue = data[i].AmountDue
         var dueDate = data[i].PaymentDueDate
-      }
-    if (dueDate === null) {
+     if (dueDate === null) {
      $(".inactive-account").append(`<ul class="account-data-list">
             <li><label>Name:</label>${lastName}, ${firstName}</li>
             <li><label>Email:</label>${email}</li>
@@ -282,6 +280,7 @@ const getInactiveAccounts = (data) => {
             <li><label>Amount Due:</label>$${amountDue}</li>
         </ul>`)
      }
+      }
     }
 }
 </script> 

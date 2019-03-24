@@ -242,8 +242,9 @@ const getActiveAccounts = (data) => {
         var day = dueDate.getDate()
         var year = dueDate.getFullYear()
     }
-    if ((firstName && lastName && email && phoneNumber && formatPhone && amountDue && dueDate) != '') {
 
+
+   if ((firstName != '') && (lastName != '') && email != '' && phoneNumber != '' && formatPhone != '' && amountDue != '') {
      $(".overdue-account").append(`<ul class="account-data-list">
             <li><label>Name:</label>${lastName}, ${firstName}</li>
             <li><label>Email:</label>${email}</li>
@@ -262,27 +263,25 @@ const getInactiveAccounts = (data) => {
         var phoneNumber = ''
         var formatPhone = ''
         var amountDue = ''
-        var dueDate = ''
-
-    for (i=0 ; i < data.length ; i++)  {
-      if (data[i].AccountStatusId === 1) {
-        console.log(data[i])
-        var firstName = data[i].FirstName
-        var lastName = data[i].LastName
-        var email = data[i].Email
-        var phoneNumber = data[i].PhoneNumber
+   
+    for (a=0 ; a < data.length ; a++)  {
+      if (data[a].AccountStatusId === 1) {
+        console.log(data[a])
+        var firstName = data[a].FirstName
+        var lastName = data[a].LastName
+        var email = data[a].Email
+        var phoneNumber = data[a].PhoneNumber
         var formatPhone = phoneNumber.match(/^(\d{3})(\d{3})(\d{4})$/)
-        var amountDue = data[i].AmountDue
-        var dueDate = data[i].PaymentDueDate
+        var amountDue = data[a].AmountDue
       }
-    if (dueDate === null) {
+    if ((firstName != '') && (lastName != '') && email != '' && phoneNumber != '' && formatPhone != '' && amountDue != '') {
      $(".inactive-account").append(`<ul class="account-data-list">
             <li><label>Name:</label>${lastName}, ${firstName}</li>
             <li><label>Email:</label>${email}</li>
-            <li><label>Phone Number:</label>(${formatPhone[1]})-${formatPhone[2]}-${formatPhone[3]}</li>
+            <li><label>Phone Number:</label>(${formatPhone})-${formatPhone}-${formatPhone}</li>
             <li><label>Amount Due:</label>$${amountDue}</li>
         </ul>`)
-     }
+    }
     }
 }
 </script> 

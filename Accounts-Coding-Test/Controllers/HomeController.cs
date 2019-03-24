@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Accounts_Coding_Test.Models;
+using AccountsCodingTest.Models;
 
 namespace Accounts_Coding_Test.Controllers
 {

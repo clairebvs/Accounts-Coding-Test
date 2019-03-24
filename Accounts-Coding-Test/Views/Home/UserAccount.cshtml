@@ -188,7 +188,31 @@
 <script>
  $(document).ready(function () {   $.get("@Url.Action("GetAccount", "Home")", function(response) {
     console.log(response)
+    getActiveAccounts(response);
   });
 });
+
+const getActiveAccounts = (data) => {
+    var x = 0
+    for (x in data) {
+      if (data[x].AccountStatusId === 0) {          var firstName = data[x].FirstName
+        var lastName = data[x].LastName
+        var email = data[x].Email
+        var phoneNumber = data[x].PhoneNumber
+        var formatPhone = phoneNumber.match(/^(\d{3})(\d{3})(\d{4})$/)
+        var amountDue = data[x].AmountDue
+        var dueDate = new Date(data[x].PaymentDueDate)
+        var month = dueDate.getMonth()+1
+        var day = dueDate.getDate()
+        var year = dueDate.getFullYear()       }
+     $(".active-account").append(`<ul class="account-data-list">
+            <li><label>Name:</label>${lastName}, ${firstName}</li>
+            <li><label>Email:</label>${email}</li>
+            <li><label>Phone Number:</label>(${formatPhone[1]})-${formatPhone[2]}-${formatPhone[3]}</li>
+            <li><label>Amount Due:</label>$${amountDue}</li>
+            <li><label>Due Date:</label>${month}/${day}/${year}</li>
+        </ul>`)
+    }
+}
 </script> 
- }
+}

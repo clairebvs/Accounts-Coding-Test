@@ -14,8 +14,8 @@ JQuery
 - Clone this repository:  
  `git@github.com:clairebvs/Accounts-Coding-Test.git`  
 
-- Visit this page:  
- `http://localhost:5000/home/UserAccount)to view the user accounts information` 
+- To view the page, visit:   
+ `http://localhost:5000/home/UserAccount`   
  
  <img width="1274" alt="Screen Shot 2019-03-24 at 2 02 49 PM" src="https://user-images.githubusercontent.com/34726107/54885136-ae41d680-4e3e-11e9-9998-8bdb9db02988.png">
 

@@ -197,14 +197,14 @@
 
 
 const getActiveAccounts = (data) => {
-    for (x in data) {
-      if (data[x].AccountStatusId === 0) {          var firstName = data[x].FirstName
-        var lastName = data[x].LastName
-        var email = data[x].Email
-        var phoneNumber = data[x].PhoneNumber
+    for (i=0 ; i < data.length ; i++) {
+      if (data[i].AccountStatusId === 0) {          var firstName = data[i].FirstName
+        var lastName = data[i].LastName
+        var email = data[i].Email
+        var phoneNumber = data[i].PhoneNumber
         var formatPhone = phoneNumber.match(/^(\d{3})(\d{3})(\d{4})$/)
-        var amountDue = data[x].AmountDue
-        var dueDate = new Date(data[x].PaymentDueDate)
+        var amountDue = data[i].AmountDue
+        var dueDate = new Date(data[i].PaymentDueDate)
         var month = dueDate.getMonth()+1
         var day = dueDate.getDate()
         var year = dueDate.getFullYear()       }
@@ -266,7 +266,6 @@ const getInactiveAccounts = (data) => {
 
     for (i=0 ; i < data.length ; i++)  {
       if (data[i].AccountStatusId === 1) {
-        console.log(data[i])
         var firstName = data[i].FirstName
         var lastName = data[i].LastName
         var email = data[i].Email

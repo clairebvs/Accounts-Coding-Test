@@ -175,9 +175,20 @@
             </section>
         </main>
         <footer class="grid">
-            <p class="copy">&copy;
-            <script>document.write(new Date().getFullYear())</script></p>
+            <p class="copy">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+            </p>
         </footer>
     </article>
 </body>
 </html>
+
+@section scripts{ 
+<script>
+ $(document).ready(function () {   $.get("@Url.Action("GetAccount", "Home")", function(response) {
+    console.log(response)
+  });
+});
+</script> 
+ }

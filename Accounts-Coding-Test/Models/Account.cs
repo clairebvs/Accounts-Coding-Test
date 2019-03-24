@@ -1,31 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
+﻿using System; using System.Net; using Newtonsoft.Json;
 
 namespace AccountsCodingTest.Models
 {
-    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class Account
-    {
-        private readonly RequestDelegate _next;
+    {         public Object getUserAccount()         {             string url = "https://frontiercodingtests.azurewebsites.net/api/accounts/getall";             var client = new WebClient();             var content = client.DownloadString(url);
 
-        public Account(RequestDelegate next)
-        {
-            _next = next;
-        }
+            object jsonData = JsonConvert.DeserializeObject(content);             return jsonData;         }
 
-        public Task Invoke(HttpContext httpContext)
-        {
 
-            return _next(httpContext);
-        }
-    }
-
-    // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class AccountExtensions
+        // Extension method used to add the middleware to the HTTP request pipeline.
+        public static class AccountExtensions
     {
         public static IApplicationBuilder UseMiddlewareClassTemplate(this IApplicationBuilder builder)
         {

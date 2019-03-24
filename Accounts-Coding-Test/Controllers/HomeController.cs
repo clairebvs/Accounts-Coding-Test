@@ -10,6 +10,13 @@ namespace Accounts_Coding_Test.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult UserAccount()
+        {
+            return View();
+        }
+
+        public JsonResult GetAccount()         {             Account account = new Account();             return Json(account.getUserAccount());         }
+
         public IActionResult Index()
         {
             return View();
